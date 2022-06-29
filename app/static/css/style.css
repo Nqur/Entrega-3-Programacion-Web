@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .navar1:hover{
+    background-color: aquamarine;
+
+  }
+
+  .nav-pills > li > a.active {
+    background-color: rgb(8, 92, 50) !important;
+}
+
+.nav-tabs> li > a.active {
+  background-color: rgb(8, 92, 50) !important;
+}

@@ -1,0 +1,34 @@
+{% extends 'patron.html' %}
+{% load static %}
+{% load crispy_forms_tags%}
+
+{% block body%}
+<p class="h1 text-center" style="margin-bottom: 30px">Lista de Digimons</p>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                        <th>Imagen</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    {% for producto in listadg %}
+                    <tr>
+                        <td>{{producto.name}}</td>
+                        <td>{{producto.level}}</td>
+                        
+                        <td><img src={{producto.img}} alt="imagen" height="50px"></td>
+                        
+                      
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+{% endblock body %}

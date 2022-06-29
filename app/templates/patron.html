@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Tienda{% endblock titulo %}</title>
+    <link rel="icon" type="image/x-icon" href="static/image/logo_yze_icon.ico">
+{% block css %}
+    <link rel="stylesheet" href="static/css/style.css">
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{% endblock css %}
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <div class="container-fluid">
+        <header>
+            <nav class="navbar navbar-expand-md bg-success navbar-dark fixed-top">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="{% url 'index' %}">
+                    {% load static %}
+                      <img src="{% static 'image/Logo.png' %}" alt="Logo" style="width:150px; margin: 0px , 20px;" >
+                    </a>
+ 
+                    </ul>
+                    {% if user.is_authenticated %}
+                    
+                    <form class="d-flex">
+                      
+                      <a class="btn btn-outline-light btn-floating m-1" href="{% url 'carrito' %}" role="button"
+                        ><i class="fa-solid fa-cart-shopping fa-2xl"></i>
+                      </a>
+                      <a class="btn btn-outline-light btn-floating m-1" href="{% url 'usuario' %}" role="button"
+                        ><i class="fa-solid fa-user fa-2xl"></i>
+                      </a>
+                      <a class="btn" style="background-color: rgb(49, 199, 116)" href="{% url 'logout' %}">Logout</a>
+                    </form>
+                    {% else %}
+                    <form class="d-flex">
+                      <a class="btn btn-info" href="{% url 'login' %}">iniciar secion</a>
+                    </form>
+                    {% endif %}
+                  </div>
+                </div>
+              </nav>
+        </header>
+        <main >
+            <div class="container-fluid" style="margin-top: 180px; margin-bottom: 200px;">
+                {% block body%}
+                <h1>caca</h1>
+                
+                {% endblock body%}
+            </div>
+        </main>
+        
+
+                <footer class="bg-dark text-center text-white">
+                    <div class="container p-4">
+                      <section class="mb-4">
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fa-brands fa-instagram"></i>
+                      </a>
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                        ><i class="fa-brands fa-github"></i>
+                      </a>
+                      </section>
+                      
+                    </div>
+                    <hr>
+                    <section class="">
+                      <div class="container text-center text-md-start mt-5">
+                        <!-- Grid row -->
+                        <div class="row mt-3">
+                          <!-- Grid column -->
+                          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                              <i class="fas fa-gem me-3"></i>ANTE JARDIN
+                            </h6>
+                            <p>
+                              SOMOS UNA TIENDA COMPROMETIDOS CON EL MEDIO AMBIETE.
+                            </p>
+                          </div>
+                          <!-- Grid column -->
+                  
+                          <!-- Grid column -->
+                          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                              Productos
+                            </h6>
+                            <p>
+                              <a href="#!" class="text-reset">Tierra de hojas</a>
+                            </p>
+                            <p>
+                              <a href="#!" class="text-reset">Plantas</a>
+                            </p>
+                            <p>
+                              <a href="#!" class="text-reset">Maseteros</a>
+                            </p>
+                            <p>
+                              <a href="#!" class="text-reset">Herramientas</a>
+                            </p>
+                          </div>
+                
+                
+                          <!-- Grid column -->
+                          <div class="col-md-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                              Contact
+                            </h6>
+                            <p><i class="fas fa-home me-3"></i> Direccion: av.antejardin 342</p>
+                            <p>
+                              <i class="fas fa-envelope me-3"></i>
+                              Correo: VENTAS@ANTJARDIN,com
+                            </p>
+                            <p><i class="fas fa-print me-3"></i>Numero de contacto: +569 2345 6789</p>
+                          </div>
+                          <!-- Grid column -->
+                        </div>
+                        <!-- Grid row -->
+                      </div>
+                    </section>
+                    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.39);">
+                      © 2020 Copyright:
+                      <a class="text-white" href="https://mdbootstrap.com/">ANTJARDIN.COM</a>
+                    </div>
+                </footer>
+    </div>
+</body>
+</html>

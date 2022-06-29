@@ -1,0 +1,32 @@
+{% extends 'patron.html' %}
+{% load static %}
+{% load crispy_forms_tags%}
+{% block titulo %}Trabajador{% endblock titulo %}
+{% block body%}
+<p class="h1 text-center">Interfas Trabajador</p>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+        <div class="d-grid">
+        <a class="btn btn-success btn-block" href="{% url 'crear_producto' %} " style="margin:20px 0px">Crear Producto</a>
+        </div>
+        <div class="d-grid">
+            <a class="btn btn-success btn-block" href="{% url 'listar_producto' %} " style="margin:20px 0px">Listar Productos</a>
+        </div>
+        <div class="d-grid">
+            <a class="btn btn-success btn-block" href="{% url 'crear_usuario' %} " style="margin:20px 0px">Crear Usuario</a>
+        </div>
+        <div class="d-grid">
+            <a class="btn btn-success btn-block" href="{% url 'listar_usuarios' %} " style="margin:20px 0px">Listar Usuarios</a>
+        </div>
+        <div class="d-grid">
+            <a class="btn btn-success btn-block" href="{% url 'apis_externas' %} " style="margin:20px 0px">Apis externas</a>
+        </div>
+        <div class="d-grid">
+            <a class="btn btn-success btn-block" href="{% url 'listar_estado' %} " style="margin:20px 0px">Listar Compras</a>
+        </div>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+{% endblock body%}

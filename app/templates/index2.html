@@ -1,0 +1,391 @@
+{% extends 'patron.html' %}
+{% load static %}
+{% load crispy_forms_tags%}
+{% block titulo %}modificar_usuario{% endblock titulo %}
+{% block body%}
+                <!-- Carousel -->
+                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                    </div>
+                
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="static/image/CONOCE-EL-AMAZONAS.jpg" alt="Los Angeles" class="d-block w-100" style="height: 600px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="static/image/12-08-19-arboles.jpg" alt="Chicago" class="d-block w-100" style="height: 600px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="static/image/plantas-perennes-beneficiosas-huerto.jpg" alt="New York" class="d-block w-100" style="height: 600px;">
+                    </div>
+                    </div>
+                
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+        </header>
+        <main >
+            <div class="modal" id="iniciar_secion">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <container class="container-fluid justify-content-center">
+                        <h4 class="text-center">Inicie Sesión</h4>
+                      </container>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Correo Electronico</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Electronico">
+                          <small id="emailHelp" class="form-text text-muted">Nunca le revelaremos tu correo a nadie.</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Contraseña</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                          <small id="emailHelp" class="form-text text-muted">Nunca le reveles tu contraseña a nadie</small>
+                        </div>
+                        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#registrarse">No tengo cuenta</button>
+                      </form>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <a href="{% url 'usuario'%}" class="btn btn-primary">Ingresar</a>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+              <div class="modal" id="Donar">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <container class="container-fluid justify-content-center">
+                        <h4 class="text-center">Donar Ahora</h4>
+                      </container>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Nombre</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Correo Electronico</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre@correo.com">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">rut</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="1234567-8">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">cantidad de dinero</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="$1000">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                      </form>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-success" data-bs-dismiss="modal">Donar</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+              <div class="modal" id="registrarse">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <container class="container-fluid justify-content-center">
+                        <h4 class="text-center">Registro</h4>
+                      </container>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Nombre</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre Completo">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">rut</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="12345678-9">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Correo Electronico</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Electronico">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Contaseña</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Contraseña">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Repetir Contraseña</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Contaseña">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Direccion</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="av.calle 000">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Telefono</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="+56 9 5555 5555">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                        </div>
+                      </form>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Registrarse</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+              <div>
+              <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+            
+                <div class="container-fluid justify-content-center">
+                  <!-- Links -->
+                  <ul class="nav nav-tabs" id="navar1">
+                    <li class="nav-item">
+                      <a class="nav-link" data-bs-toggle="tab" href="#TIENDA" style="color: aliceblue;" >TIENDA</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-bs-toggle="tab" href="#menu1" style="color: aliceblue;">NOSOTROS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-bs-toggle="tab" href="#menu2" style="color: aliceblue;">DONACIONES</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <div class="tab-content">
+                <div class="tab-pane container fade" id="TIENDA"></div>
+                <div class="tab-pane container fade" id="menu1">Fuga hic accusantium ad eum quidem, dolorum similique harum! Minus quidem adipisci dicta magnam. Quod aliquam excepturi corporis at reprehenderit! Explicabo esse corporis, inventore earum quia repudiandae doloremque atque ullam.
+                  Provident fugit quidem magni corrupti iusto nostrum omnis dignissimos quo repellendus veritatis accusantium beatae accusamus natus ea mollitia eius facilis reprehenderit explicabo maxime porro, voluptate qui maiores libero dolorum. Placeat?
+                  Harum, ullam veritatis illo saepe quos tempora quia eius beatae, debitis accusantium eum ducimus odit optio, perspiciatis odio molestias qui ratione nobis dignissimos enim architecto facilis pariatur magnam maiores. Consequatur.
+                  Explicabo ab dolores modi, inventore minima reiciendis temporibus maiores dolor saepe voluptatibus laborum illo praesentium exercitationem soluta voluptas expedita voluptate sint debitis odio quasi quaerat impedit. A adipisci enim assumenda.
+                  Ad nemo deserunt iusto repellat dignissimos qui, minima laboriosam facere provident expedita cupiditate sequi rerum aliquid voluptatibus dolores eaque, repudiandae fugit magnam quisquam eum quae voluptatem quod, possimus iste! Sed!
+                  Doloremque quis culpa repudiandae, adipisci enim cum veritatis distinctio? Architecto aperiam iste ipsum eum dolor quis animi a deleniti. Assumenda, magnam quibusdam natus quo tenetur possimus illum. Explicabo, odio dolores.
+                  Non aspernatur eaque quis itaque quia architecto voluptatibus eum repudiandae dolore amet ex, vel fuga, quod adipisci laudantium? Porro harum quas exercitationem hic blanditiis quidem eum commodi voluptas accusamus ad.
+                  Eum itaque ratione ut repudiandae officia, esse suscipit sit quasi tempora sint cumque commodi nesciunt? Id molestiae, reiciendis aspernatur temporibus, nihil voluptates quod molestias incidunt similique, necessitatibus amet libero odio.
+                  Esse, obcaecati dolorem. Ut laudantium nihil dolorem aliquam, quos nobis velit vero explicabo mollitia esse. Quo aspernatur vel vitae, nobis debitis consequuntur tempora nesciunt eius facere. Placeat magni sed totam.
+                  Natus amet volu</div>
+                <div class="tab-pane container fade" id="menu2">
+                  <div>
+                    <p class="h1 text-center">Puedes donar directamente pulsando el siguiente boton</p>
+                      <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Donar" style="margin: 50px; height: 100px; width: 100px; ">Donar</button>
+                    </div>
+                    <p class="h6 text-center" style="color: rgb(179, 179, 179);">Con cualquier donacion mayor a $5000 recibirás un cupon de descuento para tu siguiente compra</p>
+                    <hr>
+                    <p class="h1 text-center">Tambien puedes iniciar sesion y suscribirte a un plan de donacion mensual en el apartado Donaciones de tu menu de usuario con lo que recibirás un 5% de descuento en todas tus compras</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+                <div class="container-fluid" id="TIENDA" style="padding: 100px 0px;background-image: url('static/image/background.jpg')">
+                  <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                      <nav class="navbar bg-success navbar-dark">
+              
+                        <div class="container-fluid justify-content-center" >
+                          <!-- Links -->
+                          <ul class="nav nav-pills verde">
+                            <li class="nav-item">
+                              <a class="nav-link" data-bs-toggle="tab" href="#tierra" style="color: aliceblue;">Tierra De Hojas</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" data-bs-toggle="tab" href="#plantas" style="color: aliceblue;">Plantas</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" data-bs-toggle="tab" href="#Maseteros" style="color: aliceblue;">Maseteros</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" data-bs-toggle="tab" href="#Erramientas" style="color: aliceblue;">Herramientas</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </nav>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="tab-content">
+                        <div class="tab-pane container active" id="tierra">
+                          <div>
+                            <table class="table-responsive">
+                              <tbody>
+                                <tr>
+                                  {% for aux in producto %}
+                                  {% if aux.tipo.descripcion == 'Tierra de hoja' %}
+                                  <td>
+                                    <div class="card decks" style="margin:0px 20px">
+                                      <div class="card border-success" style="width:200px">
+                                        <img class="card-img-top" src={{aux.imagen.url}} alt="Card image" height="150">
+                                        <div class="card-body">
+                                          <h4 class="card-title">{{aux.nombre}}</h4>
+                                          <p class="card-text">precio: ${{aux.precio}}</p>
+                                          <p class="card-text">stock: {{aux.stock}}</p>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                          <form action="" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="nombreProducto" id="nombreProducto" value="{{ aux.nombre }}">
+                                            <input type="hidden" name="precioProducto" id="precioProducto" value="{{ aux.precio }}">
+                                            <input type="hidden" name="imagenProducto" id="imagenProducto" value="{{ aux.imagen }}" >
+                                            <input type="submit" value="Carrito" style="cursor: pointer;" class="btn btn-success btn-sm ml-auto">
+                                          </form>
+                                        </div>
+                                    </div>
+                                  </td>
+                                  {% endif%}
+                                  {% endfor %}
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="tab-pane container fade" id="plantas">
+                            <table class="table-responsive">
+                              <tbody>
+                                <tr>
+                                  {% for aux in producto %}
+                                  {% if aux.tipo.descripcion == 'plantas' %}
+                                  <td>
+                                    <div class="card decks" style="margin:0px 20px">
+                                      <div class="card border-success" style="width:200px">
+                                        <img class="card-img-top" src={{aux.imagen.url}} alt="Card image" height="150">
+                                        <div class="card-body">
+                                          <h4 class="card-title">{{aux.nombre}}</h4>
+                                          <p class="card-text">precio: ${{aux.precio}}</p>
+                                          <p class="card-text">stock: {{aux.stock}}</p>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                          <form action="" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="nombreProducto" id="nombreProducto" value="{{ aux.nombre }}">
+                                            <input type="hidden" name="precioProducto" id="precioProducto" value="{{ aux.precio }}">
+                                            <input type="hidden" name="imagenProducto" id="imagenProducto" value="{{ aux.imagen }}" >
+                                            <input type="submit" value="Carrito" style="cursor: pointer;" class="btn btn-success btn-sm ml-auto">
+                                          </form>
+                                        </div>
+                                    </div>
+                                  </td>
+                                  {% endif%}
+                                  {% endfor %}
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        <div class="tab-pane container fade" id="Maseteros">
+                          <div>
+                            <table class="table-responsive">
+                              <tbody>
+                                <tr>
+                                  {% for aux in producto %}
+                                  {% if aux.tipo.descripcion == 'Maceteros' %}
+                                  <td>
+                                    <div class="card decks" style="margin:0px 20px">
+                                      <div class="card border-success" style="width:200px">
+                                        <img class="card-img-top" src={{aux.imagen.url}} alt="Card image" height="150">
+                                        <div class="card-body">
+                                          <h4 class="card-title">{{aux.nombre}}</h4>
+                                          <p class="card-text">precio: ${{aux.precio}}</p>
+                                          <p class="card-text">stock: {{aux.stock}}</p>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                          <form action="" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="nombreProducto" id="nombreProducto" value="{{ aux.nombre }}">
+                                            <input type="hidden" name="precioProducto" id="precioProducto" value="{{ aux.precio }}">
+                                            <input type="hidden" name="imagenProducto" id="imagenProducto" value="{{ aux.imagen }}" >
+                                            <input type="submit" value="Carrito" style="cursor: pointer;" class="btn btn-success btn-sm ml-auto">
+                                          </form>
+                                        </div>
+                                    </div>
+                                  </td>
+                                  {% endif%}
+                                  {% endfor %}
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="tab-pane container fade" id="Erramientas">
+                          <div>
+                            <table class="table-responsive">
+                              <tbody>
+                                <tr>
+                                  {% for aux in producto %}
+                                  {% if aux.tipo.descripcion == 'herramientas' %}
+                                  <td>
+                                    <div class="card decks" style="margin:0px 20px">
+                                      <div class="card border-success" style="width:200px">
+                                        <img class="card-img-top" src={{aux.imagen.url}} alt="Card image" height="150">
+                                        <div class="card-body">
+                                          <h4 class="card-title">{{aux.nombre}}</h4>
+                                          <p class="card-text">precio: ${{aux.precio}}</p>
+                                          <p class="card-text">stock: {{aux.stock}}</p>
+                      
+                                        </div>
+                                        <div class="card-footer text-center">
+                                          <form action="" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="nombreProducto" id="nombreProducto" value="{{ aux.nombre }}">
+                                            <input type="hidden" name="precioProducto" id="precioProducto" value="{{ aux.precio }}">
+                                            <input type="hidden" name="imagenProducto" id="imagenProducto" value="{{ aux.imagen }}" >
+                                            <input type="submit" value="Carrito" style="cursor: pointer;" class="btn btn-success btn-sm ml-auto">
+                                          </form>
+                                        </div>
+                                    </div>
+                                  </td>
+                                  {% endif%}
+                                  {% endfor %}
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                  </div>
+                </div>  
+
+{% endblock body%}
